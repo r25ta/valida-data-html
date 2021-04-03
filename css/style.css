@@ -1,0 +1,60 @@
+body{
+  background-color:#567895;
+  background-size: cover;
+  font-family: verdana, sans-sarif;
+}
+
+h2{
+  font-size: 30px;
+  color: white;
+  background-color:black;
+  border-bottom: 5px solid white;
+  text-align: center;
+    
+}
+
+label{
+  font-weight: bold;
+
+}
+input{
+  width: 180px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.inputApolice{
+  text-align: right;
+}
+
+.inputDate{
+  text-align: center;
+}
+.divBotoes{
+  display: inline;
+  margin-left: 10px;
+  width: 380px;
+  font-weight: bold;
+}
+.container{
+  display: inline-grid;
+  width: 380px;
+  height: 380px;
+  margin: 5px;
+  margin-left: 500px;
+  padding: 15px;
+  border: 1px solid white;
+  
+}
+.divSaida{
+  display:inline;
+  font-size: 15px;
+  font-weight: italic;
+  border: 1px solid white;
+  height: 100px;
+  width:380px;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  background-color: white;
+  padding-top: 2px;  
+}

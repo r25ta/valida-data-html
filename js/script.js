@@ -1,0 +1,88 @@
+function limparResposta(){
+  var limpar = document.getElementById("txtSaida");
+  //limpar.value="";
+}
+function processarCompetencia(){
+  var apolice = document.getElementById("apolice").value;
+  var inicioVigApolice = new Date(document.getElementById("inicioVigApolice").value.replace("-",","));
+  var fimVigApolice = new Date(document.getElementById("fimVigApolice").value.replace("-",","));
+  var cpt = new Date(document.getElementById("cpt").value.replace("-",","));
+
+  var mesCpt = cpt.getMonth();
+  var anoCpt = cpt.getFullYear();
+    
+  //ADD PRIMEIRO DIA DO MÊS
+  var inicioVigCpt = new Date(anoCpt,(mesCpt),1);
+  //ADD ULTIMO DIA DO MÊS
+  var fimVigCpt = new Date(anoCpt,(mesCpt)+1,0)
+  
+  console.log("inicioVigApolice "+ new Date (inicioVigApolice));
+  console.log("fimVigApolice " + fimVigApolice);
+  console.log("inicioVigCpt" + inicioVigCpt);
+  console.log("fimVigCpt " + fimVigCpt);
+  
+  
+  
+var resposta = processar(inicioVigApolice,fimVigApolice,inicioVigCpt,fimVigCpt, document.getElementById("cpt").value,apolice);
+
+imprimeNaTela(resposta);
+    
+  
+};
+
+function imprimeNaTela(param){
+  var elemento = document.getElementById("txtSaida");
+  elemento.value=param;
+  
+}
+
+function processar(inicioVigApolice,fimVigApolice,inicioVigCpt,fimVigCpt, cpt,apolice) {
+  var retorno="";
+  if(inicioVigApolice.getTime() <= fimVigApolice.getTime()){
+    if( inicioVigCpt.getTime() >= fimVigApolice.getTime() ||  fimVigCpt.getTime() < inicioVigApolice.getTime()  ){
+      retorno = "Competência inválida " + cpt + ". Para apolice "+ apolice +" com vigência entre  " + formatarData(inicioVigApolice) + " a " + formatarData(fimVigApolice);
+      
+    };
+    
+    if(inicioVigApolice.getTime()>= inicioVigCpt.getTime()){
+      inicioFatura = inicioVigApolice;
+
+    }else{
+      inicioFatura = inicioVigCpt;
+
+    };
+    if(fimVigApolice.getTime()<=fimVigCpt.getTime()){
+      terminoFatura = fimVigApolice;
+
+    }else{
+      terminoFatura = fimVigCpt  
+    };
+    retorno = "Competência " + cpt + " processada! Fatura gerada entre " + formatarData(inicioFatura) + " a " + formatarData(terminoFatura) + " para Apolice "+apolice+" vigente entre " + formatarData(inicioVigApolice) + " a " + formatarData(fimVigApolice);
+
+  }else{
+    retorno = "Parametro invalido data inicio vigência apolice " + formatarData(inicioVigApolice) + " é maior que Data fim vigência apolice " + formatarData(fimVigApolice);
+
+  };
+  console.log(retorno);
+  return retorno;
+};
+
+function formatarData(data){
+  var dia = data.getDate();
+  var mes = data.getMonth();
+  var ano = data.getFullYear();
+
+  if(dia.toString().length==1){
+    dia= "0"+dia;    
+  
+  };
+  
+  mes = mes+1;
+  if(mes.toString().length==1){
+    mes= "0"+mes;
+  };
+  
+  
+  return dia +"/" + mes + "/" + ano;
+  
+};

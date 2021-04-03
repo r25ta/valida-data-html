@@ -1,0 +1,27 @@
+<html>
+  
+  <title>BilSeg</title>
+  <body>
+    <h2> Bilseg validação das datas de faturamento Arquivo Mapfre</h2>
+    <form name="formApolice">
+      <div class="container">
+          <label id="lblApolice">Apólice</label>
+          <input type="number" autofocus required class="inputApolice"  id="apolice" name="apolice" placeholder="Digite o Nº da apólice..." maxlength="10"/>
+          <label id="lblInicioVigApolice"> Selecione Vigência da Apólice:</label>
+          <div>
+            <input class="inputDate" required type="date" id="inicioVigApolice" name="inicioVigApolice" maxlength="10"/>
+            <input class="inputDate" required type="date" id="fimVigApolice" name="fimVigApolice"maxlength="10"/>
+        </div>  
+        <label id="lblCpt">Digite a competência para faturamento: </label>               
+        <input type="month" id="cpt" class="inputDate" required name="cpt" placeholder="Formato [mmyyyy]"maxlength="6"/>          
+    <div class="divBotoes">
+      <input type="button" id="btnProcessar" class="btnProcessar" name="processar" value="Processar" onclick="processarCompetencia();limparResposta();"/>
+      <input type="reset" id="btnLimpar" class="btnLimpar" name="limpar" value="Limpar" onclick="limparResposta();"/>
+     </div>   
+      <textarea id="txtSaida" rows = "5" cols = "50">
+            
+         </textarea>
+    </div>
+  </form>
+  </body>
+</html>
