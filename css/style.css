@@ -1,5 +1,5 @@
 body{
-  background-color:#567895;
+  background-color:#fff;
   background-size: cover;
   font-family: verdana, sans-sarif;
 }
@@ -43,7 +43,7 @@ input{
   margin: 5px;
   margin-left: 500px;
   padding: 15px;
-  border: 1px solid white;
+  border: 1px solid black;
   
 }
 .divSaida{
